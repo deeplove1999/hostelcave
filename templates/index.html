@@ -1,0 +1,260 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Hostel Cave</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<!--
+
+TemplateMo 546 Sixteen Clothing
+
+https://templatemo.com/tm-546-sixteen-clothing
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>Hostel <em>Cave</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index' %}">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Room' %}">Our Rooms</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'aboutus' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contactus' %}">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="banner header-text">
+      <div class="owl-banner owl-carousel">
+        <div class="banner-item-01">
+          <div class="text-content">
+            <h4>Rooms</h4>
+            <h2>Find your dream Far Home</h2>
+          </div>
+        </div>
+        <div class="banner-item-02">
+          <div class="text-content">
+            <h4>Entire House</h4>
+            <h2>Get entire house  </h2>
+          </div>
+        </div>
+        <div class="banner-item-03">
+          <div class="text-content">
+            <h4>Best Prices</h4>
+            <h2>Find an affordable room  </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+    <div class="latest-products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Top Rooms</h2>
+              <a href="{% url 'Room' %}">view all rooms <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+          {% for room in rooms %}
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="{{room.img.url}}" alt=""></a>
+              <div class="down-content">
+                <h4>{{room.name}}</h4>
+                <h6>&#x20b9;{{room.price}}/Month</h6>
+                <p>{{room.desc}}</p>
+                <a href="{{room.maplink}}"><img class="mx-2" style="width: 24px;height:24px;" src="{% static 'assets/images/location (2).png' %}"></a> <a href="tel:{room.phone}"><img style="width: 24px;height:24px;" src="{% static 'assets/images/phone.png' %}"></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!--<div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="{% static 'assets/images/dorm1.jpg' %}" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$30.25</h6>
+                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <a href="https://goo.gl/maps/RWpXkZsydhJLeWnBA"><img class="mx-2" style="width: 24px;height:24px;" src="assets/images/location (2).png"></a> <a href="tel:+1123-456-7890"><img style="width: 24px;height:24px;" src="assets/images/phone.png"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="assets/images/hye.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$20.45</h6>
+                <p>Sixteen Clothing is free CSS template provided by TemplateMo.</p>
+                <a href="https://goo.gl/maps/RWpXkZsydhJLeWnBA"><img class="mx-2" style="width: 24px;height:24px;" src="assets/images/location (2).png"></a> <a href="tel:+1123-456-7890"><img style="width: 24px;height:24px;" src="assets/images/phone.png"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="assets/images/room1.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$15.25</h6>
+                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <a href="https://goo.gl/maps/RWpXkZsydhJLeWnBA"><img class="mx-2" style="width: 24px;height:24px;" src="assets/images/location (2).png"></a> <a href="tel:+1123-456-7890"><img style="width: 24px;height:24px;" src="assets/images/phone.png"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="assets/images/room2.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$12.50</h6>
+                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <a href="https://goo.gl/maps/RWpXkZsydhJLeWnBA"><img class="mx-2" style="width: 24px;height:24px;" src="assets/images/location (2).png"></a> <a href="tel:+1123-456-7890"><img style="width: 24px;height:24px;" src="assets/images/phone.png"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="assets/images/room3.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$22.50</h6>
+                <p >Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <a href="https://goo.gl/maps/RWpXkZsydhJLeWnBA"><img class="mx-2" style="width: 24px;height:24px;" src="assets/images/location (2).png"></a> <a href="tel:+1123-456-7890"><img style="width: 24px;height:24px;" src="assets/images/phone.png"></a>
+                
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="best-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>About Hostel Cave</h2>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="left-content">
+              <h4>Looking for an affordable room?</h4>
+              <p><a rel="nofollow" href="{% static 'https://templatemo.com/tm-546-sixteen-clothing' %}" target="_parent">Hostel Cave</a> easy way to find a perfect room for you and your buddies. Now no hassle to search here and there, we will help you. </p>
+              <ul class="featured-list">
+                <li><a href="#">Rooms in Mullana</a></li>
+                <li><a href="#">Rooms near Campus</a></li>
+                <li><a href="#">Entire house for group</a></li>
+                <li><a href="#">Now no hostel rules or timing</a></li>
+                
+              </ul>
+              <a href="{% url 'aboutus' %}" class="filled-button">Read More</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="{% static 'assets/images/ian.jpg' %}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+   
+
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Copyright &copy; 2020 HOSTEL CAVE</p>
+            
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+  </body>
+
+</html>
